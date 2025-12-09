@@ -1,0 +1,14 @@
+accelerate launch examples/wanvideo/model_training/train.py \
+  --dataset_base_path data/example_video_dataset \
+  --dataset_metadata_path data/example_video_dataset/metadata_reference_control.csv \
+  --data_file_keys "video,control_video,reference_image" \
+  --height 480 \
+  --width 832 \
+  --dataset_repeat 100 \
+  --model_id_with_origin_paths "MCG-NJU/SteadyDancer-14B:diffusion_pytorch_model*.safetensors,MCG-NJU/SteadyDancer-14B:models_t5_umt5-xxl-enc-bf16.pth,MCG-NJU/SteadyDancer-14B:Wan2.1_VAE.pth,MCG-NJU/SteadyDancer-14B:models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth" \
+  --learning_rate 1e-5 \
+  --num_epochs 2 \
+  --remove_prefix_in_ckpt "pipe.dit." \
+  --output_path "./models/train/SteadyDancer-14B_full" \
+  --trainable_models "dit" \
+  --extra_inputs "control_video,reference_image"
