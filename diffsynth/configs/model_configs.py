@@ -261,6 +261,27 @@ wan_series = [
         "model_class": "diffsynth.models.wav2vec.WanS2VAudioEncoder",
         "state_dict_converter": "diffsynth.utils.state_dict_converters.wans2v_audio_encoder.WanS2VAudioEncoderStateDictConverter",
     },
+    {
+        # Example: ModelConfig(model_id="MCG-NJU/SteadyDancer-14B", origin_file_pattern="diffusion_pytorch_model*.safetensors")
+        "model_hash": "a884529a35a5db020750db0b817bb916",
+        "model_name": "wan_video_dancer_dit",
+        "model_class": "diffsynth.models.wan_video_dancer_dit.WanVideoDancerDiT",
+        "extra_kwargs": {
+            "dim": 1536,
+            "in_dim": 16,
+            "in_dim_c": 16,
+            "ffn_dim": 8960,
+            "out_dim": 16,
+            "text_dim": 4096,
+            "freq_dim": 256,
+            "eps": 1e-6,
+            "patch_size": (1, 2, 2),
+            "num_heads": 12,
+            "num_layers": 30,
+            "has_image_input": True,
+        },
+    },
+    
 ]
 
 flux_series = [
